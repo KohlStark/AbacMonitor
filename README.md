@@ -1,3 +1,6 @@
+# ABAC Monitor project description
+
+
 Contained in this repository is a working ABAC (Attribute Based Access Control) generator based on a user defined policy.
 It is required that a user provide an example policy when running this code, a couple of example policies are attached to show the format.
 
