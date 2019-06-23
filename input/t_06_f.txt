@@ -1,0 +1,1 @@
+load-policy Example-Space-Sensitive.txt; check-permission Kyle S_App ENV PlayPermission

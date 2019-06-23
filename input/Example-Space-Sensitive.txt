@@ -1,0 +1,5 @@
+ATTRS = <Role, role>; <Space, spaceName>; <String, sAppCategory>; <String, username>;
+PERMS = <PlayPermission> 
+PA = <spaceName, "ASU_Campus">; <role, "ASU_Affiliate">; <sAppCategory, "Games"> : PlayPermission - <spaceName, "ASU_Campus">; <username, "Carlos"> : PlayPermission
+ENTITIES = <Josie>;<Carlos>;<Kyle>;<S_App>;<ENV>
+AA = <Josie> : <role, "ASU_Affiliate">;  <Josie> : <username, "Josie">; <Carlos> : <username, "Carlos">; <ENV> : <spaceName,"ASU_Campus">; <S_App> : <sAppCategory, "Games">

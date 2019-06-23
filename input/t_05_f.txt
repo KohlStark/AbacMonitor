@@ -1,0 +1,1 @@
+load-policy Example-Space-Sensitive.txt; check-permission Josie S_App ENV PlayPermission

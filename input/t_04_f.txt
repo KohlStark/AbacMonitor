@@ -1,0 +1,1 @@
+load-policy Example-Entering-Bar.txt; remove-attribute age; check-permission User Bar ENV PE

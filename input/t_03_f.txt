@@ -1,0 +1,1 @@
+load-policy Example-Entering-Bar.txt; check-permission User Bar ENV PE
