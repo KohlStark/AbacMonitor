@@ -1,10 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#Kohl Stark
-# 1210832503
-# CSE 365 Carlos Rubio-Medrano
-# Assignment 1
-# Necessary Imports
+'''
+Kohl Stark
+AbacMonitor
+02/2019
+AbacMonitor.py
+This file contains the python code necessary to read a text file and generate an ABAC Machine to run a 
+specified policiy
+'''
 import re
 import copy
 import sys
@@ -131,7 +134,7 @@ PA = PAdelimit(permissions['PA'])
 PA_list = []
 for i in PA:
     temp1 = i.replace('"', '') #BIG CHANGE
-    hold = re.split(' : |, |; ', temp1)
+    hold = re.split(' : |, |; |,|;', temp1)
     PA_list.append(hold)
 
 # List of Entities
@@ -187,7 +190,7 @@ for key, key_list in second_dict.items():
     hold_list = []
     for lists in PA_list:
         list_count = 0
-        if key_list[0] in lists and key_list[0] not in 'role':
+        if (key_list[0] in lists and key_list[0] not in 'role') or (key_list[-1] in 'Carlos'):
             while list_count < len(lists):
                 i_count = -1
                 for i in key_list:
@@ -217,7 +220,10 @@ def check_permission(name, file, env, my_perms):
 
 # Adding an entity to the Entities list and to the dictionary          
 def add_entity(ent_name):
-    second_dict[ent_name] = 'None'
+    this_list = copy.deepcopy(needed_atts)
+    perm_list = []
+    this_list.append(perm_list)
+    second_dict[ent_name] = this_list
     Entities.append(ent_name)
 
 # Remove and entity from the Entities list and the dictionary
@@ -260,7 +266,10 @@ def remove_attribute(att_name):
             if key_list[needed_count] in items and len(items) < 4:
                 flag = True
                 key_list.pop(needed_count)
-                key_list[-1].pop(0)
+                if len(key_list[-1]) == 0:
+                    hi = 0
+                else:
+                    key_list[-1].pop(0)
         if flag != True:
             key_list.pop(needed_count)
             
@@ -341,6 +350,7 @@ def remove_at_from_perm(perm_name, att_name, att_value):
 
 # Adds and attribute to an entity, creates a new AA entry and updates the dictionary
 def add_att_to_ent(ent_name, att_name, att_value):
+    att_value = att_value.strip(";")
     ap_list = [ent_name, att_name, att_value]
     AA_list.append(ap_list)
     for key, key_list in second_dict.items():
@@ -369,6 +379,7 @@ def remove_att_from_ent(ent_name, att_name, att_value):
     for key, key_list in second_dict.items():
         if ent_name in key:
             key_list[att_count] = needed_atts[att_count]
+            key_list[-1].pop(0)
              
 temp = 2
 my_list = []
