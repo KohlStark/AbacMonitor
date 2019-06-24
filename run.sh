@@ -1,4 +1,10 @@
 #!/bin/bash
+# Kohl Stark
+# AbacMonitor
+# 02/2019
+# run.sh
+# This file contains the shell script to run and compare the results of AbacMonitor.py being tested on 5 sample input .txt files
+# to 5 outputs and display whether the ouput is the same or not
 
 # This is the Run and Compile script
 # It takes all test cases and runs them within your program
